@@ -41,5 +41,14 @@ namespace SharingCookies.Controllers
             HttpContext.Response.Cookies.Add(cookie);
             return Redirect("http://localhost:44504/");
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
